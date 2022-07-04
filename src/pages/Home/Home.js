@@ -10,13 +10,13 @@ export default function Home() {
   useEffect(() => {
     initTerminal({
       host: document.querySelector("#terminal"),
-      welcomeMessage: "Greetings...who are you?",
-      prompt: "thinkr:~$",
+      welcomeMessage: "",
+      prompt: "616c6963650a:~$",
       commands: {
 
         echo: {
           name: "echo",
-          description: "a test command with one echo arg",
+          description: "A command that will echo one argument",
           argDescriptions: ["a string to be echoed in console"],
           func: ({ print }, argument) => {
             print(argument);
@@ -25,21 +25,22 @@ export default function Home() {
 
         clear: {
           name: 'clear',
-          description: 'clear the history',
-          func: ({ commandContainer }) => { commandContainer.innerHTML = 'Greetings...who are you?' }
+          description: 'Clear the terminal history',
+          func: ({ commandContainer }) => { commandContainer.innerHTML = '' }
         },
 
         username: {
           name: "username",
-          description: "username <string>",
-          argDescriptions: ["Initial user"],
+          description: "A command to enter the username",
+          argDescriptions: ["string"],
           func: ({print}, argument) => {
             if (argument === "alice") {
               isUsername = true;
-              print(`Welcome ${argument}. Whats your password?`);
+              print(`Hello ${argument}. What's your password?`);
             }
               else{
-                print( 'Guess you are not much of Thinkr...try again');
+                isUsername = false;
+                print( 'Incorrect...try again');
               }
           }
 
@@ -47,19 +48,19 @@ export default function Home() {
 
        password: {
           name: "password",
-          description: "password <string>",
-          argDescriptions: ["Root Password"],
+          description: "A command to enter the user's password",
+          argDescriptions: ["string"],
           func: ({print}, argument) => {
             if(isUsername == true) {
 
-              if (argument === "password") {
+              if (argument === "password" && isUsername === true) {
                 isPassword = true;
-                setTimeout(() => {window.location.href = "/thinkrOS"}, 5000)
-                print("Correct. Redirecting ...");
+                setTimeout(() => {window.location.href = "/thinkrOS"}, 3000)
+                print("Correct. Logging into ThinkrOS...");
 
               }
               else{
-                print('haha...try again');
+                print('Not quite...try again');
               }
             }
           }
@@ -70,7 +71,7 @@ export default function Home() {
   }, []);
   return (
     <div className="App">
-      <div id="terminal" className="terminal"/>
+      <div id="terminal"/>
     </div>
   );
 }
