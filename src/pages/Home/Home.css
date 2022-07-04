@@ -1,0 +1,51 @@
+
+.terminalStyles {
+  --terminal-bg-color: #00000;
+  --terminal-fg-color: #0000;
+}
+
+.terminal {
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: var(--terminal-bg-color, black);
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.terminal * {
+    color: var(--terminal-fg-color, white);
+    font-family: var(--terminal-font, "Courier New", monospace);
+}
+
+.terminal-type {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.terminal-type > span {
+    padding-right: 7pt;
+}
+.terminal-type > input {
+    flex-grow: 2;
+    background: transparent;
+    border: 0;
+    font-size: inherit;
+    padding: 0;
+}
+.terminal-type > input:focus {
+    border: none;
+    outline: none;
+}
+
+.terminal-container > p {
+    margin: 0;
+}
+
+span.terminal-command {
+    color: var(--terminal-accent-color, #00b300);
+}
+
+span.terminal-error {
+    color: var(--terminal-error-color, #cc1010);
+}
