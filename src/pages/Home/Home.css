@@ -13,7 +13,7 @@
 }
 
 .terminal * {
-    color: var(--terminal-fg-color, white);
+    color: var(--terminal-fg-color, rgb(255, 255, 255));
     font-family: var(--terminal-font, "Courier New", monospace);
 }
 

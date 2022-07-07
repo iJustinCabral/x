@@ -1,4 +1,3 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useEffect } from 'react'
 import { initTerminal } from 'ttty'
 import './Home.css'
@@ -55,7 +54,7 @@ export default function Home() {
           func: ({print}, argument) => {
             if(isUsername == true) {
 
-              if (argument === "password" && isUsername === true) {
+              if (argument === "password") {
                 isPassword = true;
                 setTimeout(() => {window.location.href = "/thinkrOS"}, 3000)
                 print("Correct. Logging into ThinkrOS...");
@@ -67,12 +66,11 @@ export default function Home() {
             }
           }
         },
-
       }
     });
 
     terminal.input.focus()
-    
+
   }, []);
   return (
     <div className="App">

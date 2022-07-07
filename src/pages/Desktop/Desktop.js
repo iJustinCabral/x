@@ -12,11 +12,11 @@ import { useState } from 'react'
 
 const Desktop = () => {
 
-  const [isWindowOpen, setIsWindowOpen] = useState(false)
+  /* const [isWindowOpen, setIsWindowOpen] = useState(false)
 
   const toggleWindow = () => {
     setIsWindowOpen(!isWindowOpen)
-  }
+  } */
 
   return (
     <>
