@@ -7,10 +7,12 @@ var isUsername = false;
 var isPassword = false;
 
 export default function Home() {
+
   useEffect(() => {
-    initTerminal({
+    
+    const terminal = initTerminal({
       host: document.querySelector("#terminal"),
-      welcomeMessage: "",
+      welcomeMessage: "Welcome to ThinkrOS. Log in to continue...",
       prompt: "616c6963650a:~$",
       commands: {
 
@@ -68,6 +70,9 @@ export default function Home() {
 
       }
     });
+
+    terminal.input.focus()
+    
   }, []);
   return (
     <div className="App">

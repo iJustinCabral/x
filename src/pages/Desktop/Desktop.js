@@ -5,17 +5,29 @@ import Window from '../../components/Window/Window'
 import diskIcon from '../../images/floppy.png'
 import vaultIcon from '../../images/vault.png'
 import terminalIcon from '../../images/terminal.png'
-import { Container } from './Desktop.elements'
+import trashIcon from '../../images/trash.png'
+import { Container, Dock } from './Desktop.elements'
+import { useState } from 'react'
 
 
 const Desktop = () => {
+
+  const [isWindowOpen, setIsWindowOpen] = useState(false)
+
+  const toggleWindow = () => {
+    setIsWindowOpen(!isWindowOpen)
+  }
+
   return (
     <>
     <Container>
       <MenuBar />
-      <AppIcon image={diskIcon} text={"Disk"} />
-      <AppIcon image={vaultIcon} text={"Vault"} />
-      <AppIcon image={terminalIcon} text={"Terminal"} />
+        <Dock>
+          <AppIcon image={diskIcon} text={"Disk"} />
+          <AppIcon image={vaultIcon} text={"Vault"} />
+          <AppIcon image={terminalIcon} text={"Terminal"} />
+          <AppIcon image={trashIcon} text={"Trash"} />
+        </Dock>
     </Container>
     </>
   );
