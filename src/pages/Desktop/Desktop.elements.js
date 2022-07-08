@@ -10,11 +10,9 @@ export const Container = styled.div`
 `
 
 export const Dock = styled.div`
-    position: fixed;
+    position: relative;
+    top: 680px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 680px;
-    margin-left: 320px;
 `
-

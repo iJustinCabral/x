@@ -1,13 +1,14 @@
 import React from 'react'
 import { IconWrapper, Text, Image } from './AppIcon.elements'
 
-const AppIcon = ({image, text}) => {
+function AppIcon (props) {
+
   return (
     <>
-        <IconWrapper>
-            <Image src ={image} />
+        <IconWrapper onClick = {props.onClick}>
+            <Image src ={props.image} />
             <Text>
-                {text}
+                {props.text}
             </Text>
         </IconWrapper>
     </>
