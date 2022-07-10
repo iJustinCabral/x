@@ -28,7 +28,7 @@ export const WindowContent = styled.div`
 export const WindowBar = styled.div`
   position: relative;
   width: 640px;
-  height: 30px;
+  height: 36px;
   z-index: 3;
   background: #A5A5A5;
   margin: auto;
@@ -47,15 +47,18 @@ export const CloseButton = styled.button`
   outline: none;
   cursor: pointer;
   margin-left: 10px;
+  font-weight: bold;
+  border: 1px solid #000;
 `
 export const BarTitle = styled.div`
   min-width: 200x;
   height: 24px;
   background-color: #fff;
-  border-radius: 4px;
   padding-left: 20px;
   padding-right: 20px;
-  margin-left: 235px;
+  padding-top: 4px;
+  margin-left: 230px;
   font-family: "Monaco", sans-serif;
   font-weight: bold;
+  border: 1px solid #000;
 `

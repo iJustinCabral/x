@@ -1,40 +1,32 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { WindowWrapper, WindowContent, WindowBar,CloseButton, BarTitle} from './Window.elements'
+import { initTerminal } from 'ttty'
+import fileIcon from '../../images/file.png'
 
 
-const Window = ({openWindow, setOpenWindow}, props) => {
+const Window = ({openWindow, setOpenWindow, windowBarTitle}) => {
 
   if (openWindow === 0) return null
-
-  /*
-  const titles = ""
-  switch(openWindow){
-    case 1:
-      titles = "Disk";
-    break;
-    case 2:
-      titles = "Vault";
-    break;
-    case 3:
-      titles = "Terminal";
-    break;
-    case 4:
-      titles = "Trash";
-    break;
-  }
-  */
 
   return (
     <>
       <WindowWrapper>
 
         <WindowBar>
-        <CloseButton onClick={() => setOpenWindow(0)}> X </CloseButton>
-        <BarTitle> {props.text} </BarTitle>
+           <CloseButton onClick={() => setOpenWindow(0)}> X </CloseButton>
+           <BarTitle> {windowBarTitle} </BarTitle>
         </WindowBar>
-        <WindowContent >
-           This is a test window 1
+
+        <WindowContent>
+           {openWindow === 1 && <div> <img src={fileIcon} alt="File" /> </div>}
+
+           {openWindow === 2 && <div> This is the system vault </div>}
+
+           {openWindow === 3 && <div id="terminal" />}
+
+           {openWindow === 4 && <div> testing 4</div>}
         </WindowContent >
+
       </WindowWrapper>
     </>
   )
