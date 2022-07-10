@@ -1,10 +1,5 @@
 import styled from "styled-components";
 
-// *******************************************************************
-// ***** NEED TO WORK ON THIS. THIS IS A DOG SHIT IMPLEMENTATION *****
-// *******************************************************************
-
-
 // The background of the Window which dims the rest of the desktop
 export const WindowWrapper = styled.div`
     position: relative;
@@ -24,6 +19,19 @@ export const WindowContent = styled.div`
     overflow: auto;
     z-index:2
 `
+export const WindowContentWrapper = styled.div`
+  display:flex;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+`
+
+export const TerminalWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  background: black;
+`
+
 
 export const WindowBar = styled.div`
   position: relative;
