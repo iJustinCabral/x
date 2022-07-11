@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react'
-import { WindowWrapper, WindowContent, WindowContentWrapper,TerminalWrapper, WindowBar,CloseButton, BarTitle} from './Window.elements'
+import React, {useEffect, useState} from 'react'
+import { WindowWrapper, WindowContent, WindowContentWrapper,TerminalWrapper, WindowBar,CloseButton, BarTitle, TextField, VaultContentWrapper, VaultPasswordText, UnlockButton} from './Window.elements'
 import FileIcon from '../../components/FileIcon/FileIcon'
 import fileIcon from '../../images/file.png'
 import Terminal from 'react-console-emulator'
@@ -12,7 +12,38 @@ const commands = {
   }
 }
 
+
+
+const vaultPassphrase = "testing"
+const didEnterCorrectPhrase = false;
+const MAX_LENGTH = "10"
+
+
 const Window = ({openWindow, setOpenWindow, windowBarTitle}) => {
+
+  const [inputText, setInputText] = useState('');
+
+  const handleChange = event => {
+    setInputText(event.target.value);
+
+  };
+
+  const handleVaultClick = event => {
+    event.preventDefault();
+
+   //******** TODO: Remove this before launch ********
+    console.log('handleClick 👉️', inputText);
+
+    if ( vaultPassphrase === inputText){
+      console.log("you got it");
+      // TODO: Forward to the congratulations page
+    }
+    else{
+      console.log("Wrong");
+      document.getElementById('textField').value = '';
+      //TODO: DDOS ANY USER THAT GETS IT WRONG
+    }
+  };
 
   if (openWindow === 0) return null
 
@@ -38,7 +69,11 @@ const Window = ({openWindow, setOpenWindow, windowBarTitle}) => {
            }
 
            {openWindow === 2 &&
-             <div> This is the system vault </div>
+            <VaultContentWrapper>
+              <VaultPasswordText> Enter Vault Password </VaultPasswordText>
+              <TextField maxLength={MAX_LENGTH} id="textField" onChange={handleChange} type="password" autoFocus="autoFocus" value ={inputText}/>
+              <UnlockButton onClick = {handleVaultClick}> Unlock Vault</UnlockButton>
+            </VaultContentWrapper>
            }
 
            {openWindow === 3 &&
@@ -56,7 +91,7 @@ const Window = ({openWindow, setOpenWindow, windowBarTitle}) => {
            }
 
            {openWindow === 4 &&
-             <div> testing 4</div>
+             <div> Trash is empty.</div>
            }
         </WindowContent >
 

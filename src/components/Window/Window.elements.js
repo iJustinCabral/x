@@ -25,6 +25,48 @@ export const WindowContentWrapper = styled.div`
   height: 100%;
   padding: 20px;
 `
+export const VaultContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: auto;
+  height: auto;
+`
+
+export const VaultPasswordText = styled.h3`
+  margin-top: 60px;
+  margin-left: 200px;
+  font-family: "Monaco", sans-serif;
+  font-weight: bold;
+`
+
+export const TextField = styled.input`
+
+  margin-left: 145px;
+  width: 300px;
+  height: 40px;
+  border: 1px solid black;
+  font-size: 26px;
+
+`
+
+export const UnlockButton = styled.button`
+  width: 160px;
+  height: 40px;
+  margin-left: 220px;
+  margin-top: 30px;
+  background-color: red;
+  border: 1px solid black;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  font-family: "Monaco", sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  &:hover {
+        background: #4CAF50;
+    }
+`
 
 export const TerminalWrapper = styled.div`
   width: 100%;
@@ -59,13 +101,13 @@ export const CloseButton = styled.button`
   border: 1px solid #000;
 `
 export const BarTitle = styled.div`
-  min-width: 200x;
+  min-width: 100px;
   height: 24px;
   background-color: #fff;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 4px;
-  margin-left: 230px;
+  margin-left: 215px;
   font-family: "Monaco", sans-serif;
   font-weight: bold;
   border: 1px solid #000;
