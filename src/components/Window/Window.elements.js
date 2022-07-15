@@ -112,3 +112,11 @@ export const BarTitle = styled.div`
   font-weight: bold;
   border: 1px solid #000;
 `
+
+export const MessageText = styled.div`
+  mind-width: 24px;
+  padding-top: 5px;
+  margin: 0 auto;
+  font-family: "Monaco", sans-serif;
+  font-weight: bold;
+`

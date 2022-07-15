@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
-import { WindowWrapper, WindowContent, WindowContentWrapper,TerminalWrapper, WindowBar,CloseButton, BarTitle, TextField, VaultContentWrapper, VaultPasswordText, UnlockButton} from './Window.elements'
+import { WindowWrapper, WindowContent, WindowContentWrapper,TerminalWrapper, WindowBar,
+         CloseButton, BarTitle, TextField, VaultContentWrapper, VaultPasswordText, UnlockButton, MessageText} from './Window.elements'
 import FileIcon from '../../components/FileIcon/FileIcon'
 import fileIcon from '../../images/file.png'
 import Terminal from 'react-console-emulator'
@@ -15,13 +16,16 @@ const commands = {
 
 
 const vaultPassphrase = "testing"
-const didEnterCorrectPhrase = false;
+let didEnterCorrectPhrase = false;
 const MAX_LENGTH = "10"
 
 
 const Window = ({openWindow, setOpenWindow, windowBarTitle}) => {
 
+  let congratsMessage = "";
+
   const [inputText, setInputText] = useState('');
+  const [messageText, setMessageText] = useState('');
 
   const handleChange = event => {
     setInputText(event.target.value);
@@ -35,14 +39,18 @@ const Window = ({openWindow, setOpenWindow, windowBarTitle}) => {
     console.log('handleClick 👉️', inputText);
 
     if ( vaultPassphrase === inputText){
-      console.log("you got it");
-      // TODO: Forward to the congratulations page
+      document.getElementById('textField').value = '';
+      didEnterCorrectPhrase = true;
+      setMessageText("Congrats you solved our challenge! Rerouting...")
+      setTimeout(() => {window.location.href = "/bigbang"}, 3000)
     }
+
     else{
       console.log("Wrong");
+      setMessageText("Incorrect.. try again.")
       document.getElementById('textField').value = '';
-      //TODO: DDOS ANY USER THAT GETS IT WRONG
     }
+
   };
 
   if (openWindow === 0) return null
@@ -59,11 +67,11 @@ const Window = ({openWindow, setOpenWindow, windowBarTitle}) => {
         <WindowContent>
            {openWindow === 1 &&
              <WindowContentWrapper>
-              <FileIcon image={fileIcon} text={"Hello.txt"} />
-              <FileIcon image={fileIcon} text={"ZEF.png"} />
-              <FileIcon image={fileIcon} text={"Party.txt"} />
-              <FileIcon image={fileIcon} text={"SRA.txt"} />
-              <FileIcon image={fileIcon} text={"Diffie.txt"} />
+              <FileIcon image={fileIcon} text={"File 1.txt"} />
+              <FileIcon image={fileIcon} text={"File 2.png"} />
+              <FileIcon image={fileIcon} text={"File 3.txt"} />
+              <FileIcon image={fileIcon} text={"File 4.txt"} />
+              <FileIcon image={fileIcon} text={"File 5.txt"} />
              </WindowContentWrapper>
 
            }
@@ -71,8 +79,9 @@ const Window = ({openWindow, setOpenWindow, windowBarTitle}) => {
            {openWindow === 2 &&
             <VaultContentWrapper>
               <VaultPasswordText> Enter Vault Password </VaultPasswordText>
-              <TextField maxLength={MAX_LENGTH} id="textField" onChange={handleChange} type="password" autoFocus="autoFocus" value ={inputText}/>
+              <TextField maxLength={MAX_LENGTH} id="textField" onChange={handleChange} autoFocus="autoFocus" value ={inputText}/>
               <UnlockButton onClick = {handleVaultClick}> Unlock Vault</UnlockButton>
+              <MessageText>{messageText}</MessageText>
             </VaultContentWrapper>
            }
 
