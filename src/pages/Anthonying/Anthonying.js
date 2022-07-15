@@ -11,7 +11,7 @@ const Anthonying = () => {
     <AnthonyPic src={AnthonyImage}/>
 
     <audio controls autoPlay loop>
-      <source src={wrong} type="audio/mpeg"/>
+      <source src={wrong} type="audio/mpeg" />
     </audio>
 
     </>
