@@ -1,19 +1,15 @@
 import React from 'react'
 import AnthonyImage from '../../images/Anthonying.jpeg'
-import wrong from '../../sounds/wrong.mp3'
-import {AnthonyPic} from './Anthonying.elements'
+import {AnthonyPic, Container, HaHaText} from './Anthonying.elements'
 
 const Anthonying = () => {
 
   return (
     <>
-
-    <AnthonyPic src={AnthonyImage}/>
-
-    <audio controls autoPlay loop>
-      <source src={wrong} type="audio/mpeg" />
-    </audio>
-
+      <Container>
+      <AnthonyPic src={AnthonyImage}/>
+      <HaHaText>uh uh uh...you didn't say the magic word!</HaHaText>
+      </Container>
     </>
   )
 }

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { initTerminal } from 'ttty'
-import './Home.css'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 var isUsername = false;
 var isPassword = false;
@@ -8,7 +8,7 @@ var isPassword = false;
 export default function Home() {
 
   useEffect(() => {
-    
+
     const terminal = initTerminal({
       host: document.querySelector("#terminal"),
       welcomeMessage: "Welcome to ThinkrOS. Log in to continue...",
@@ -52,7 +52,7 @@ export default function Home() {
           description: "A command to enter the user's password",
           argDescriptions: ["string"],
           func: ({print}, argument) => {
-            if(isUsername == true) {
+            if(isUsername === true) {
 
               if (argument === "password") {
                 isPassword = true;

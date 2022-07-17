@@ -13,11 +13,10 @@ const commands = {
   }
 }
 
-
-
 const vaultPassphrase = "testing"
 let didEnterCorrectPhrase = false;
 const MAX_LENGTH = "10"
+
 
 
 const Window = ({openWindow, setOpenWindow, windowBarTitle}) => {
@@ -29,7 +28,6 @@ const Window = ({openWindow, setOpenWindow, windowBarTitle}) => {
 
   const handleChange = event => {
     setInputText(event.target.value);
-
   };
 
   const handleVaultClick = event => {
@@ -95,7 +93,6 @@ const Window = ({openWindow, setOpenWindow, windowBarTitle}) => {
              style={{background: 'black'}}
              promptLabelStyle={{color : '#008106'}}
              inputTextStyle={{color : '#008106'}}
-
              />
            }
 
